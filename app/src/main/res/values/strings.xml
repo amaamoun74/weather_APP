@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">weather</string>
+    <string name="city">city</string>
+    <string name="time">dd month yyyy, hh:mm time</string>
+    <string name="weather_state">weather state</string>
+    <string name="dgree">°C</string>
+    <string name="min_temp">Min Temp:</string>
+    <string name="max_temp">Max Temp</string>
+    <string name="sunrise">Sunrise</string>
+    <string name="please_check_your_intent_connection">please check your intent connection</string>
+    <string name="my_name">Ahmed Maamoun</string>
+    <string name="created_by">Created By</string>
+    <string name="sunset">Sunset</string>
+    <string name="wind">Wind</string>
+    <string name="pressure">Pressure</string>
+</resources>
