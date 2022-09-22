@@ -39,7 +39,7 @@ class ModelView : ViewModel() {
                     override fun onError(e: Throwable) {
                         weatherError.value = true
                         weatherLoading.value = false
-                        Log.e("Error", "Error: " + e)
+                        Log.e("Error", "Error: $e")
                     }
                 })
         )
