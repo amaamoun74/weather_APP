@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         val cityName = getPreferences.getString(packageName, "cairo")?.lowercase(Locale.getDefault())
         binding.address.text = cityName
         if (cityName != null) {
-            viewModel.refreshData("cairo")
+            viewModel.refreshData(cityName)
         }
 
         binding.layout.setOnRefreshListener {
@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
             binding.progressBar.visibility = View.GONE
             binding.mainContainer.visibility = View.GONE
 
-            viewModel.refreshData("cairo")
+            viewModel.refreshData(cityName!!)
             binding.layout.isRefreshing = false
         }
 
