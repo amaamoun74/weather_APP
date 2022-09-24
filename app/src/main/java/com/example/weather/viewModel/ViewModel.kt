@@ -1,4 +1,4 @@
-package com.example.weather.modelView
+package com.example.weather.viewModel
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
@@ -10,7 +10,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 
-class ModelView : ViewModel() {
+class ViewModel : ViewModel() {
     private val weatherAPIServices = WeatherAPIServices()
     private val disposable = CompositeDisposable()
     val weatherData = MutableLiveData<WeatherModel>()

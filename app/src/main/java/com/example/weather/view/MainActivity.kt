@@ -9,13 +9,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
 import com.example.weather.databinding.ActivityMainBinding
-import com.example.weather.modelView.ModelView
+import com.example.weather.viewModel.ViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-   private lateinit var viewModel: ModelView
+   private lateinit var viewModel: ViewModel
    private lateinit var getPreferences: SharedPreferences
    private lateinit var setPreferences: SharedPreferences.Editor
    private lateinit var binding: ActivityMainBinding
@@ -29,14 +29,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
 
-        viewModel = ViewModelProviders.of(this).get(ModelView::class.java)
+        viewModel = ViewModelProviders.of(this).get(ViewModel::class.java)
         getPreferences = getSharedPreferences(packageName, MODE_PRIVATE)
         setPreferences = getPreferences.edit()
 
         val cityName = getPreferences.getString(packageName, "cairo")?.lowercase(Locale.getDefault())
         binding.address.text = cityName
         if (cityName != null) {
-            viewModel.refreshData(cityName)
+            viewModel.refreshData("cairo")
         }
 
         binding.layout.setOnRefreshListener {
@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
             binding.progressBar.visibility = View.GONE
             binding.mainContainer.visibility = View.GONE
 
-            viewModel.refreshData(cityName!!)
+            viewModel.refreshData("cairo")
             binding.layout.isRefreshing = false
         }
 

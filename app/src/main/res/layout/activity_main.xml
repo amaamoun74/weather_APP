@@ -17,87 +17,95 @@
         android:id="@+id/mainContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible">
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5"
+        tools:layout_editor_absoluteY="1dp">
+
         <LinearLayout
             android:id="@+id/searchLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="3"
-            >
+            android:weightSum="3">
 
             <EditText
                 android:id="@+id/city"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2.5"
-                android:hint="search by city .."
                 android:backgroundTint="#E4DDED"
-                android:textColorHint="#E4DDED"
-                android:textColor="#E4DDED"/>
+                android:hint="@string/search_by_city"
+                android:textColor="#E4DDED"
+                android:textColorHint="#E4DDED" />
 
             <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-                android:backgroundTint="#FFFFFF"
                 android:id="@+id/search"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:background="@drawable/ic_baseline_search_24"
-                 />
+                android:backgroundTint="#FFFFFF" />
         </LinearLayout>
-
-
-        <TextView
-            android:id="@+id/updatedAt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/cityLayout"
-            android:layout_centerInParent="true"
-            android:text="@string/time"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_12sdp" />
 
         <LinearLayout
-            android:id="@+id/cityLayout"
-            android:layout_below="@+id/searchLayout"
+            android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/_10sdp"
-            android:layout_margin="@dimen/_5sdp"
-            android:orientation="horizontal"
-            android:weightSum="3"
-            >
+            android:orientation="vertical"
+            android:layout_below="@id/searchLayout">
 
+            <LinearLayout
+                android:id="@+id/cityLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="@dimen/_10sdp"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/address"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="@string/city"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_22sdp" />
+
+                <ImageView
+                    android:id="@+id/icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end"
+                    android:layout_weight="2"
+                    android:src="@drawable/humidity" />
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/address"
+                android:id="@+id/updatedAt"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_45sdp"
-                android:gravity="center_vertical"
-                android:text="@string/city"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/time"
                 android:textColor="@color/white"
-                android:layout_weight="1"
-                android:textSize="@dimen/_22sdp" />
+                android:textSize="@dimen/_12sdp" />
 
-            <ImageView
-                android:id="@+id/icon"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_45sdp"
-                android:src="@drawable/humidity"
-                android:layout_weight="2"
-                android:layout_gravity="end"
-                />
+
         </LinearLayout>
-
-
 
 
         <LinearLayout
             android:id="@+id/overviewContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:orientation="vertical">
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/_45sdp"
+            android:orientation="vertical"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:layout_below="@id/linearLayout2">
 
             <TextView
                 android:id="@+id/status"
@@ -119,6 +127,7 @@
                 android:textSize="@dimen/_65sdp" />
 
             <LinearLayout
+                android:id="@+id/tempLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -129,7 +138,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/min_temp"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12sdp"/>
 
                 <Space
                     android:layout_width="@dimen/_35sdp"
@@ -140,10 +150,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/max_temp"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12sdp"/>
             </LinearLayout>
         </LinearLayout>
-
 
         <LinearLayout
             android:id="@+id/detailsContainer"
@@ -152,7 +162,9 @@
             android:layout_alignParentBottom="true"
             android:orientation="vertical"
             android:textColor="@color/white"
-            android:weightSum="2">
+            android:weightSum="2"
+            android:gravity="center_vertical"
+            android:layout_below="@+id/overviewContainer">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -399,7 +411,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/my_name"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_9sdp" />
+                        android:textSize="@dimen/_10sdp" />
 
                 </LinearLayout>
             </LinearLayout>

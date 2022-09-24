@@ -13,4 +13,5 @@
     <string name="sunset">Sunset</string>
     <string name="wind">Wind</string>
     <string name="pressure">Pressure</string>
+    <string name="search_by_city"><font size="18">search by city ..</font></string>
 </resources>
