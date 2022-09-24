@@ -411,7 +411,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/my_name"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_10sdp" />
+                        android:textSize="@dimen/_9sdp" />
 
                 </LinearLayout>
             </LinearLayout>
